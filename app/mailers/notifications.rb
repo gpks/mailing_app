@@ -9,6 +9,6 @@ class Notifications < ActionMailer::Base
   def hello
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: "sadlogos@gmail.com, meksionek@gmail.com"
   end
 end
