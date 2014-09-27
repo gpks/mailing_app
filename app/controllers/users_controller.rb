@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :send_email]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :send_email, :send_code]
 
   # GET /users
   # GET /users.json
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def send_code
-    Notifications.code(@user.email).deliver
+    Notifications.code(@user).deliver
     redirect_to root_path
   end
 
@@ -80,6 +80,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email)
+      params.require(:user).permit(:email, :code)
     end
 end
