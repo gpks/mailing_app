@@ -11,4 +11,10 @@ class Notifications < ActionMailer::Base
 
     mail to: email
   end
+
+   def code(user)
+    @greeting = user.code
+
+    mail to: user.email
+  end
 end

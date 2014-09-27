@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
     post :send_email
+    post :send_code
   end
   end
 

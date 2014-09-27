@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def send_code
+    Notifications.code(@user.email).deliver
+    redirect_to root_path
+  end
+
 
   # GET /users/new
   def new
